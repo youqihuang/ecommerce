@@ -12,8 +12,6 @@ const Cart = () => {
   const cartRef = useRef();
   const {totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity, onRemove }  = useStateContext();
   const handleCheckout = async () => {
-    console.log(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
-    console.log("handle checkout");
     const stripe = await getStripe(); 
     const response = await fetch('/api/stripe', {
       method:'POST',
@@ -24,7 +22,7 @@ const Cart = () => {
     });
     if (response.statusCode === 500) return; 
     const data = await response.json();
-    toast.loading('Redirecting');
+    toast.loading('重定向。。。');
     stripe.redirectToCheckout({sessionId: data.id});
   }
   return (
@@ -35,24 +33,25 @@ const Cart = () => {
         className="cart-heading"
         onClick={()=>setShowCart(false)}>
           <AiOutlineLeft/>
-          <span classname="heading">Your Cart</span>
-          <span className="cart-num-items">({totalQuantities} items)</span>
+          <span classname="heading">你的購物袋</span>
+          <span className="cart-num-items">({totalQuantities}樣物品)</span>
         </button>
         {cartItems.length < 1 && (
           <div className ="empty-cart">
             <AiOutlineShopping size={150}/>
-            <h3>Your shopping bag is empty</h3>
+            <h3>你的購物袋是空的</h3>
             <Link href="/">
               <button
               type="button"
               onClick={() => setShowCart(false)}
               className="btn">
-                Continue Shopping
+                繼續購物
               </button>
             </Link>
           </div>
         )}
         <div className="product-container">
+
           {cartItems.length>=1 && cartItems.map((item, index) => (
             <div className="product" key={item._id}>
               <img src={urlFor(item?.image[0])}
@@ -84,12 +83,12 @@ const Cart = () => {
         {cartItems.length >= 1 && (
           <div className="cart-bottom">
             <div className="total">
-              <h3>Subtotal:</h3>
+              <h3>小計:</h3>
               <h3>{totalPrice} NTD</h3>
             </div>
             <div className="btn-container">
               <button type="button" className="btn" onClick={handleCheckout}>
-                Pay with Stripe
+                使用Stripe支付
               </button>
             </div>
           </div>

@@ -21,17 +21,17 @@ const Success = () => {
             <p className="icon">
                 <BsBagCheckFill/>
             </p>
-            <h2>Thank you for your order!</h2>
-            <p className="email-msg">Check your email inbox for the receipt.</p>
+            <h2>感謝貴方的訂單!</h2>
+            <p className="email-msg">收據已送到您的電子郵箱</p>
             <p className="description">
-            If you have any questions, please email
+            如果有任何問題，請聯繫
             <a className="email" href="mailto:order@example.com">
                 order@example.com
             </a>
             </p>
             <Link href = "/">
                 <button type ="button" width="300px" className="btn"> 
-                    Continue Shopping
+                    繼續購物
                 </button>
             </Link>
         </div>

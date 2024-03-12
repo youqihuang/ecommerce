@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
   return (
     <div className="layout">
       <Head>
-        <title>Mango Store</title>
+        <title>芒果網購</title>
       </Head>
       <header>
         <Navbar />

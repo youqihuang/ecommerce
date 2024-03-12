@@ -7,8 +7,8 @@ const Home = ({ products, bannerData }) => (
   <div>
     <HeroBanner heroBanner={bannerData.length && bannerData[0]}  />
     <div className="products-heading">
-      <h2>Best Seller Products</h2>
-      <p>speaker There are many variations passages</p>
+      <h2>最暢銷的產品</h2>
+      <p>我們生產各種的水果</p>
     </div>
 
     <div className="products-container">

@@ -34,7 +34,7 @@ export const StateContext = ({ children }) => {
       setCartItems([...cartItems, { ...product }]);
     }
 
-    toast.success(`${qty} ${product.name} added to the cart.`);
+    toast.success(`${qty}樣${product.name} 加入購物袋`);
   } 
 
   const onRemove = (product) => {
